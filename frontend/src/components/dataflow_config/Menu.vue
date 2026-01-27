@@ -686,6 +686,26 @@ defineExpose();
   *:not(.menuline):not(img) {
     color: var(--Gold-600) !important;
   }
+  span,
+  .sle {
+    color: var(--Gold-600) !important;
+  }
+  *:not(.menuline):not(img) {
+    color: var(--Gold-600) !important;
+  }
+}
+
+/* 更具体的选择器确保激活状态颜色生效 */
+.el-menu-vertical :deep(.el-menu-item.is-active),
+.el-menu-vertical :deep(.el-menu-item.is-active *) {
+  color: var(--Gold-600) !important;
+}
+
+.el-menu-vertical :deep(.el-menu-item.is-active) span,
+.el-menu-vertical :deep(.el-menu-item.is-active) .sle,
+.el-menu-vertical :deep(.el-menu-item.is-active) .innerBox,
+.el-menu-vertical :deep(.el-menu-item.is-active) .innerBox * {
+  color: var(--Gold-600) !important;
 }
 
 /* 更具体的选择器确保激活状态颜色生效 */
