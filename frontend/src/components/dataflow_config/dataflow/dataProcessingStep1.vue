@@ -191,7 +191,6 @@ import { useRouter, useRoute } from "vue-router";
 import { ref, onMounted, inject, computed, watch } from "vue";
 import { ElMessage } from "element-plus";
 import useFetchApi from "../../../packs/useFetchApi";
-import useFetchApi2 from "../../../packs/useFetchApi2";
 import SpaceResourceSelect from "../dataAcquisition/dataSourceManagement/SpaceResourceSelect.vue";
 import StorageSizeField from "../dataAcquisition/dataSourceManagement/StorageSizeField.vue";
 import TaskNamespaceFields from "../shared/TaskNamespaceFields.vue";
@@ -362,7 +361,7 @@ const getTemplatesDetalis = async () => {
 
 const fetchBranchList = async () => {
   const url = `datasets/${subForm.value.repo_id}/branches`
-  const { data } = await useFetchApi2(url).get().json()
+  const { data } = await useFetchApi(url).get().json()
   if (data.value && data.value.data) {
     branchList.value = data.value.data
   }
@@ -404,7 +403,7 @@ const getSelListData = async (type) => {
   if (subForm.value.owner !== userStore.username) {
     url = `/organization/${subForm.value.owner}/datasets?current_user=${userStore.username}&per=50&page=1`
   }
-  const { data } = await useFetchApi2(url).get().json()
+  const { data } = await useFetchApi(url).get().json()
   if (data.value && data.value.data) {
     dataSourceList.value = data.value.data
     if (type) {
